@@ -7,3 +7,4 @@ class User(db.Model, UserMixin):
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str] = mapped_column(String(80),unique=True, nullable=True)
     password: Mapped[str] = mapped_column(String(80), unique=True, nullable=True)
+    role: Mapped[str] = mapped_column(String(80), nullable=False, default='user')

@@ -6,7 +6,7 @@ from models.user import User
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "your_secret_key"
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///database.sqlite3"
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://root:admin@127.0.0.1:3306/flask-crud"
 
 login_manager = LoginManager()
 
@@ -58,7 +58,7 @@ def create_user():
         if usernameAlreadyExist:
             return jsonify({"message": "Username already exist."}), 409
 
-        user = User(username=username, password=password)
+        user = User(username=username, password=password, role='user')
         db.session.add(user)
         db.session.commit()
         return jsonify({'message': 'User registered.'})
