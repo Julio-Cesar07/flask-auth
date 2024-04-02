@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:5000
+// authToken = {{authentica.response.body.}}
+
+# @name login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "username": "julio",
+    "password": "123"
+}
+
+###
+
+# @name logout
+GET {{baseUrl}}/logout
+Content-Type: application/json
+
+###
+
+# @name create_user
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "username": "julio",
+    "password": "123"
+}
+
+###
+
+# @name update_user
+PUT {{baseUrl}}/user
+Content-Type: application/json
+
+{
+    "password": "admin"
+}
+
+###
+
+# @name delete_user
+DELETE {{baseUrl}}/user
+Content-Type: application/json
+
+###
+
+# @name me
+GET {{baseUrl}}/me
+Content-Type: application/json
